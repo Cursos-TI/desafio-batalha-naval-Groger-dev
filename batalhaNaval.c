@@ -10,6 +10,11 @@ int main() {
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
     // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
 
+    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
+    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
+    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
+    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+
 
     //definição das dimensões do tabuleiro utilizando matriz;
     int tabuleiro [10][10]; 
@@ -25,17 +30,25 @@ int main() {
         //loop interno controla o eixo horizontal (variável j);
         for (int j = 0; j < 10; j++){
 
-            if ((i > 1 && i < 5) && (j == 1)){ //coordenadas do primeiro navio (vertical)
+            if ((i > 4 && i < 8) && (j == 1)){ //coordenadas do primeiro navio (vertical)
                 
-                tabuleiro [j][i] = 3; //3 marca a posição do navio
+                tabuleiro [j][i] = 3; //3 marca a posição do primeiro navio
 
-            } else if ((j > 4 && j < 8) && (i == 5)){ //coordenadas do segundo navio (horizontal)
+            } else if ((j > 6 && j < 10) && (i == 4)){ //coordenadas do segundo navio (horizontal)
 
-                tabuleiro [j][i] = 3; //3 marca a posição do navio
+                tabuleiro [j][i] = 3; //3 marca a posição do segundo navio
 
+            } else if ((i == j) && (i > 0 && i < 4)){ // i == j indica a posição do navio na diagonal central (do canto superior esquerdo ao canto inferior direito) e i > 0 && i < 4 indica o início (B2) e o fim do navio (D4);
+
+                tabuleiro [j][i] = 3; //3 marca a posição do terceiro navio
+
+            } else if ((i + j == 8) && (j > 5 && j < 9)){ // i + j == 8 indica a diagonal (A9 -> I1) escolhida para o quarto navio. j > 5 indica o início do navio (G3) e j < 9 o fim (I1)
+            
+                tabuleiro [j][i] = 3; //3 marca a posição do quarto navio
+                        
             } else {
 
-                tabuleiro [j][i] = 0; //o 0 indica a água
+                tabuleiro [j][i] = 0; // 0 indica a água
 
             }
             printf("%d ", tabuleiro [j][i]); // impressão da posição dos navios (3) e a água (0)
@@ -44,16 +57,7 @@ int main() {
     }
         
 
-
-
-
-
-
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
+    
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
     // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
